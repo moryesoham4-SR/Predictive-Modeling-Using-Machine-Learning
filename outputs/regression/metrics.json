@@ -1,0 +1,389 @@
+{
+  "dataset_name": "diabetes_progression",
+  "task_type": "regression",
+  "target_col": "disease_progression",
+  "target_names": null,
+  "data_quality": {
+    "n_rows": 442,
+    "n_features": 10,
+    "numeric_features": [
+      "age",
+      "sex",
+      "bmi",
+      "bp",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6"
+    ],
+    "categorical_features": [],
+    "high_cardinality_categorical_features": [],
+    "constant_features": [],
+    "missing_value_columns": {},
+    "total_missing_cells": 0,
+    "duplicate_rows": 0,
+    "target_summary": {
+      "mean": 152.1335,
+      "std": 77.093,
+      "min": 25.0,
+      "median": 140.5,
+      "max": 346.0
+    }
+  },
+  "cleaning_summary": {
+    "initial_rows": 442,
+    "final_rows": 442,
+    "dropped_missing_target_rows": 0,
+    "duplicate_rows_detected": 0
+  },
+  "preprocessing": {
+    "numeric_columns": [
+      "age",
+      "sex",
+      "bmi",
+      "bp",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6"
+    ],
+    "categorical_columns": [],
+    "dropped_all_nan_columns": [],
+    "numeric_missing_indicator_enabled": false,
+    "max_ohe_categories": 20
+  },
+  "split_sizes": {
+    "train": 264,
+    "val": 89,
+    "test": 89
+  },
+  "best_model_key": "linear_regression",
+  "best_model_name": "Linear Regression (OLS)",
+  "bootstrap_cis_test": {
+    "r2": {
+      "estimate": 0.4464263764021127,
+      "ci_low": 0.2582319966467214,
+      "ci_high": 0.5850627712737554
+    },
+    "rmse": {
+      "estimate": 54.15641293326043,
+      "ci_low": 46.816884482156055,
+      "ci_high": 61.3594232835936
+    },
+    "mae": {
+      "estimate": 42.9244893219867,
+      "ci_low": 36.244409237601225,
+      "ci_high": 50.01675640754952
+    }
+  },
+  "slice_analysis_test": [
+    {
+      "slice_feature": "s1",
+      "slice_group": "High",
+      "n_samples": 30,
+      "mae": 35.18214792801425,
+      "rmse": 46.27182120810037
+    },
+    {
+      "slice_feature": "s1",
+      "slice_group": "Low",
+      "n_samples": 31,
+      "mae": 50.85262674430176,
+      "rmse": 63.569126631844526
+    },
+    {
+      "slice_feature": "s1",
+      "slice_group": "Medium",
+      "n_samples": 28,
+      "mae": 42.44227438367978,
+      "rmse": 50.54175278200811
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "s1",
+      "importance": 51.10135942562746
+    },
+    {
+      "feature": "s5",
+      "importance": 37.27158760731833
+    },
+    {
+      "feature": "s2",
+      "importance": 27.480823178765977
+    },
+    {
+      "feature": "bmi",
+      "importance": 25.076618410484997
+    },
+    {
+      "feature": "bp",
+      "importance": 15.16733791816701
+    },
+    {
+      "feature": "s4",
+      "importance": 15.032148455381739
+    },
+    {
+      "feature": "sex",
+      "importance": 11.359310736067489
+    },
+    {
+      "feature": "s3",
+      "importance": 10.840293926392789
+    },
+    {
+      "feature": "s6",
+      "importance": 3.8171119100701913
+    },
+    {
+      "feature": "age",
+      "importance": 1.1318367587051683
+    }
+  ],
+  "models": [
+    {
+      "key": "naive_baseline",
+      "display_name": "Naive Baseline (Mean)",
+      "is_baseline": true,
+      "train_time_sec": 0.0054,
+      "infer_ms_per_1k": 18.1371,
+      "cv": {
+        "r2": {
+          "mean": -0.02309469308133778,
+          "std": 0.017262502910116738
+        },
+        "rmse": {
+          "mean": 78.89298947460516,
+          "std": 7.069641699404439
+        },
+        "mae": {
+          "mean": 66.97757929274516,
+          "std": 6.609979515621325
+        }
+      },
+      "train": {
+        "mae": 66.67728420569328,
+        "mse": 6216.721705693297,
+        "rmse": 78.84619017868458,
+        "r2": 0.0
+      },
+      "val": {
+        "mae": 64.12878787878789,
+        "mse": 5721.289360020016,
+        "rmse": 75.6392051783995,
+        "r2": -0.04425569621232195
+      },
+      "test": {
+        "mae": 63.53140960163432,
+        "mse": 5314.4355976774905,
+        "rmse": 72.90017556684957,
+        "r2": -0.003073496180143964
+      }
+    },
+    {
+      "key": "linear_regression",
+      "display_name": "Linear Regression (OLS)",
+      "is_baseline": true,
+      "train_time_sec": 0.0167,
+      "infer_ms_per_1k": 28.7157,
+      "cv": {
+        "r2": {
+          "mean": 0.46289066373969695,
+          "std": 0.08873689730129271
+        },
+        "rmse": {
+          "mean": 56.786823564510634,
+          "std": 5.320407208145782
+        },
+        "mae": {
+          "mean": 45.56611721539693,
+          "std": 5.503893878847955
+        }
+      },
+      "train": {
+        "mae": 43.79352731425381,
+        "mse": 2982.29180960148,
+        "rmse": 54.6103635732402,
+        "r2": 0.5202790231272076
+      },
+      "val": {
+        "mae": 42.938899632988786,
+        "mse": 2620.7963509159395,
+        "rmse": 51.19371397853392,
+        "r2": 0.5216495188687917
+      },
+      "test": {
+        "mae": 42.9244893219867,
+        "mse": 2932.9170617978175,
+        "rmse": 54.15641293326043,
+        "r2": 0.4464263764021127
+      }
+    },
+    {
+      "key": "decision_tree_unconstrained",
+      "display_name": "Decision Tree (Unconstrained)",
+      "is_baseline": false,
+      "train_time_sec": 0.005,
+      "infer_ms_per_1k": 18.4247,
+      "cv": {
+        "r2": {
+          "mean": -0.2859104578980274,
+          "std": 0.3288000439964631
+        },
+        "rmse": {
+          "mean": 86.92124309583075,
+          "std": 5.267672114205843
+        },
+        "mae": {
+          "mean": 68.82939042089986,
+          "std": 7.17608386739239
+        }
+      },
+      "train": {
+        "mae": 0.0,
+        "mse": 0.0,
+        "rmse": 0.0,
+        "r2": 1.0
+      },
+      "val": {
+        "mae": 50.550561797752806,
+        "mse": 4369.359550561798,
+        "rmse": 66.10113123511425,
+        "r2": 0.20249994147160122
+      },
+      "test": {
+        "mae": 65.5505617977528,
+        "mse": 6762.5842696629215,
+        "rmse": 82.23493339003153,
+        "r2": -0.2764044124550298
+      }
+    },
+    {
+      "key": "decision_tree_regularized",
+      "display_name": "Decision Tree (Regularized)",
+      "is_baseline": false,
+      "train_time_sec": 0.0041,
+      "infer_ms_per_1k": 16.7539,
+      "cv": {
+        "r2": {
+          "mean": 0.19808216967895698,
+          "std": 0.08242185149120558
+        },
+        "rmse": {
+          "mean": 69.60102327199904,
+          "std": 5.6568077238604575
+        },
+        "mae": {
+          "mean": 54.81910544924129,
+          "std": 4.057055930210901
+        }
+      },
+      "train": {
+        "mae": 39.030751171121985,
+        "mse": 2401.6654446574603,
+        "rmse": 49.00678978118706,
+        "r2": 0.6136765391222183
+      },
+      "val": {
+        "mae": 48.799260726788816,
+        "mse": 3727.5772156100898,
+        "rmse": 61.05388780094262,
+        "r2": 0.3196387220557423
+      },
+      "test": {
+        "mae": 48.59940724562251,
+        "mse": 3648.900049104567,
+        "rmse": 60.40612592365585,
+        "r2": 0.3112881204042143
+      }
+    },
+    {
+      "key": "random_forest",
+      "display_name": "Random Forest",
+      "is_baseline": false,
+      "train_time_sec": 0.1803,
+      "infer_ms_per_1k": 113.1551,
+      "cv": {
+        "r2": {
+          "mean": 0.3734261071179025,
+          "std": 0.08115873216756962
+        },
+        "rmse": {
+          "mean": 61.3744530474522,
+          "std": 4.074305177035826
+        },
+        "mae": {
+          "mean": 49.16842211426079,
+          "std": 4.012995064947434
+        }
+      },
+      "train": {
+        "mae": 21.46080463990728,
+        "mse": 735.8942417413995,
+        "rmse": 27.127370711910128,
+        "r2": 0.881626639154932
+      },
+      "val": {
+        "mae": 43.961919210084226,
+        "mse": 2901.7834514195397,
+        "rmse": 53.86820445698501,
+        "r2": 0.47036346046498423
+      },
+      "test": {
+        "mae": 44.5517859243155,
+        "mse": 2975.3305092946352,
+        "rmse": 54.546590262771105,
+        "r2": 0.4384210474666602
+      }
+    },
+    {
+      "key": "random_forest_tuned",
+      "display_name": "Random Forest (GridSearchCV)",
+      "is_baseline": false,
+      "train_time_sec": 0.1832,
+      "infer_ms_per_1k": 139.3798,
+      "cv": {
+        "r2": {
+          "mean": 0.39681722388665347,
+          "std": 0.07785859310236856
+        },
+        "rmse": {
+          "mean": 60.237753969767915,
+          "std": 4.3790426804470055
+        },
+        "mae": {
+          "mean": 48.418273814088515,
+          "std": 3.815945921872123
+        }
+      },
+      "train": {
+        "mae": 36.008836511454206,
+        "mse": 1950.6215548917637,
+        "rmse": 44.16584149421093,
+        "r2": 0.6862298736799852
+      },
+      "val": {
+        "mae": 43.28495825490924,
+        "mse": 2903.5571067986666,
+        "rmse": 53.88466485744035,
+        "r2": 0.4700397310368394
+      },
+      "test": {
+        "mae": 43.25459780131357,
+        "mse": 2876.575217878477,
+        "rmse": 53.633713444795866,
+        "r2": 0.45706062143579174
+      },
+      "tuned_params": {
+        "max_depth": 4,
+        "min_samples_leaf": 3,
+        "n_estimators": 250
+      }
+    }
+  ]
+}
